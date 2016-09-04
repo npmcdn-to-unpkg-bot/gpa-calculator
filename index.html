@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>GPA Calculator</title>
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 		<style>
 		*{
 			-webkit-box-sizing: border-box;
@@ -12,18 +13,41 @@
 		body{
 			margin: 0;
 			padding: 0;
+			background-color: #d8d8d8;
+		}
+		.app{
+			width: 600px;
+			min-height: 300px;
+			margin: auto;
+			margin-top: 50px;
+			border-radius: 4px;
+			border: solid 1px #333;
+			background-color: #eee;
 		}
 		</style>
     <script src="https://npmcdn.com/react@15.3.1/dist/react.js"></script>
     <script src="https://npmcdn.com/react-dom@15.3.1/dist/react-dom.js"></script>
     <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
     <script src="https://npmcdn.com/jquery@3.1.0/dist/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
     <div id="app"></div>
     <script type="text/babel">
-		let test="TEST";
-		console.log(test);
+		const App=React.createClass({
+			render: function(){
+				return(
+					<div className="app">
+					</div>
+				)
+			}
+		});
+
+		//render
+		ReactDOM.render(
+			<App/>,
+			document.getElementById("app")
+		);
 		</script>
   </body>
 </html>
