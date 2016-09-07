@@ -70,6 +70,7 @@
 				let c=this.state.course;
 				c.push({
 					id: cnt++,
+					courseName: "",
 					credit: 0,
 					score: 0,
 					enabled: true
@@ -78,6 +79,17 @@
 				this.setState({
 					course: c
 				})
+			},
+
+			updateCourseName: function(courseName,id){
+
+				let c=pickCourse(this.state.course,id,function(item){
+					item.courseName=courseName;
+				})
+
+				this.setState({
+					course: c
+				});
 			},
 
 			updateCredit: function(credit,id){
@@ -164,19 +176,19 @@
 											<div className="col-lg-3">
 												<div className="input-group">
 													<span className="input-group-addon">Name</span>
-													<input type="text" className="form-control"/>
+													<input type="text" className="form-control" value={item.courseName} onChange={(event)=>{this.updateCourseName(event.target.value,item.id)}}/>
 												</div>
 											</div>
 											<div className="col-lg-3">
 												<div className="input-group">
 													<span className="input-group-addon">Credit</span>
-													<input type="text" className="form-control" onChange={(event)=>{this.updateCredit(event.target.value,item.id)}}/>
+													<input type="text" className="form-control" value={item.credit} onChange={(event)=>{this.updateCredit(event.target.value,item.id)}}/>
 												</div>
 											</div>
 											<div className="col-lg-3">
 												<div className="input-group">
 													<span className="input-group-addon">Score</span>
-													<input type="text" className="form-control" onChange={(event)=>{this.updateScore(event.target.value,item.id)}}/>
+													<input type="text" className="form-control" value={item.score} onChange={(event)=>{this.updateScore(event.target.value,item.id)}}/>
 												</div>
 											</div>
 											<div className="col-lg-3">
